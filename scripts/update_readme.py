@@ -25,4 +25,5 @@ def update_readme(count):
 
 if __name__ == "__main__":
     solved_count = count_problems()
+    print(f"Total problems solved: {solved_count}")
     update_readme(solved_count)
