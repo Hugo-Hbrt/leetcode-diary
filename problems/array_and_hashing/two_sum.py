@@ -1,8 +1,9 @@
 # Title: Two Sum
 # Link: https://leetcode.com/problems/two-sum/
-# Difficulty: Easy
-# Tags: Array, Hash Map
-# Status: Solved ✅
+# Difficulty: Easy/
+# Tags: array, hash-table
+# Status: Solved
+# Date: 2025-06-19
 
 def twoSum(nums, target):
     hashmap = {}
