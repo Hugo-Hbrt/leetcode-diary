@@ -8,7 +8,7 @@ def count_problems():
     total = 0
     for root, dirs, files in os.walk(PROBLEMS_DIR):
         for file in files:
-            if file.endswith(".py") or file.endswith(".md") or file.endswith(".cpp"):
+            if file.endswith(".py"):
                 total += 1
     return total
 
