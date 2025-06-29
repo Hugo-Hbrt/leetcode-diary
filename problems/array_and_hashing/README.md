@@ -2,11 +2,43 @@
 
 | Problem | Link | Difficulty |
 |---------|------|------------|
+| Encode and Decode Strings | [https://leetcode.com/problems/encode-and-decode-strings/](https://leetcode.com/problems/encode-and-decode-strings/) | Medium |
 | Contains Duplicate | [https://leetcode.com/problems/contains-duplicate/](https://leetcode.com/problems/contains-duplicate/) | Easy |
 | Top k frequent elements | [https://leetcode.com/problems/top-k-frequent-elements/](https://leetcode.com/problems/top-k-frequent-elements/) | Medium |
 | Two Sum | [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/) | Easy |
 | Valid Anagram | [https://leetcode.com/problems/valid-anagram/](https://leetcode.com/problems/valid-anagram/) | Easy |
 | Group anagrams | [https://leetcode.com/problems/group-anagrams/](https://leetcode.com/problems/group-anagrams/) | Medium |
+
+## Encode and Decode Strings
+
+```py
+
+class Solution:
+    def encode(self, strs: List[str]) -> str:
+        res = ""
+        for s in strs:
+            l = len(s)
+            res += str(l) + "#" + s
+        return res
+
+    def decode(self, s: str) -> List[str]:
+        res = []
+        i = 0
+        while i < len(s):
+            l = ""
+           
+            for j in range(i, len(s)):
+                c = s[j]
+                if c == "#":
+                    start = j+1
+                    end = start+int(l)-1
+                    res.append(s[start:end+1])
+                    i = end+1
+                    break
+                else:
+                    l += str(c)
+        return res
+```
 
 ## Contains Duplicate
 
