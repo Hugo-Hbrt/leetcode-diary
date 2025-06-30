@@ -4,7 +4,7 @@ This repository contains my journey to master Data Structures and Algorithms usi
 
 ## 📊 Progress
 
-- Total Problems Solved: **6**
+- Total Problems Solved: **7**
 - Languages: Python
 - Platforms: [LeetCode](https://leetcode.com/), [NeetCode](https://neetcode.io/)
 
