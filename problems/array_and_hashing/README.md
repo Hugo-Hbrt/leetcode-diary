@@ -6,6 +6,7 @@
 | Contains Duplicate | [https://leetcode.com/problems/contains-duplicate/](https://leetcode.com/problems/contains-duplicate/) | Easy |
 | Top k frequent elements | [https://leetcode.com/problems/top-k-frequent-elements/](https://leetcode.com/problems/top-k-frequent-elements/) | Medium |
 | Two Sum | [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/) | Easy |
+| Valid Sudoku | [https://leetcode.com/problems/valid-sudoku/](https://leetcode.com/problems/valid-sudoku/) | Medium |
 | Valid Anagram | [https://leetcode.com/problems/valid-anagram/](https://leetcode.com/problems/valid-anagram/) | Easy |
 | Group anagrams | [https://leetcode.com/problems/group-anagrams/](https://leetcode.com/problems/group-anagrams/) | Medium |
 
@@ -89,6 +90,34 @@ def twoSum(nums, target):
             return [hashmap[target - num], i]
         hashmap[num] = i
 
+```
+
+## Valid Sudoku
+
+```py
+from collections import defaultdict
+
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        rows = defaultdict(set)
+        columns = defaultdict(set)
+        squares = defaultdict(set)
+
+        for i in range(9):
+            for j in range(9):
+                square_id = ((j//3)+1) + (i//3)*3
+                val = board[i][j]
+                
+                if val == ".":
+                    continue
+
+                if (val in rows[i]) or (val in columns[j]) or (val in squares[square_id]):
+                    return False
+                rows[i].add(val)
+                columns[j].add(val)
+                squares[square_id].add(val)
+        
+        return True
 ```
 
 ## Valid Anagram
