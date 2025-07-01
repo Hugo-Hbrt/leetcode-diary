@@ -6,7 +6,7 @@ and will generate / update READMEs accordingly.
 
 ## 📊 Progress
 
-- Total Problems Solved: **8**
+- Total Problems Solved: **9**
 - Languages: Python
 - Platforms: [LeetCode](https://leetcode.com/), [NeetCode](https://neetcode.io/)
 
