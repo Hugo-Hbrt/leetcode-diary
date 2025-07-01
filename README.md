@@ -4,11 +4,12 @@ This repository contains my journey to master Data Structures and Algorithms usi
 The progress is automatically updated by github actions using scripts that will count in the repo all solved problems,
 and will generate / update READMEs accordingly.
 
-## 📊 Progress
+## 📊 Total progress : 10 problems solved.
 
-- Total Problems Solved: **10**
 - Languages: Python
 - Platforms: [LeetCode](https://leetcode.com/), [NeetCode](https://neetcode.io/)
+
+## 📅 Problems solved by date
 
 ## 🧭 Roadmap
 
@@ -23,7 +24,6 @@ and will generate / update READMEs accordingly.
 ## 🗂️ Folder Structure
 
 - `problems/` - Categorized problems with solutions
-- `daily/` - Daily challenge log
 - `scripts/` - Automation or helper scripts
 
 ## 📌 Goals

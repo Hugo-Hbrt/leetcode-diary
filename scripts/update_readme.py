@@ -16,8 +16,8 @@ def update_readme(count):
     with open(README_PATH, "r") as f:
         content = f.read()
 
-    updated = re.sub(r"- Total Problems Solved: \*\*\d+\*\*", 
-                     f"- Total Problems Solved: **{count}**", 
+    updated = re.sub(r"## 📊 Total progress \: \d+ problems solved.", 
+                     f"## 📊 Total progress \: {count} problems solved.", 
                      content)
     print("******* UPDATED README CONTENT: *******")
     print()

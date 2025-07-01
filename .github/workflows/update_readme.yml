@@ -24,6 +24,7 @@ jobs:
       run: |
         python scripts/update_readme.py
         python scripts/generate_problem_readmes.py
+        python scripts/generate_date_table.py
 
     - name: Commit changes
       run: |
