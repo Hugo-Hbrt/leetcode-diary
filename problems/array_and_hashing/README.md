@@ -3,6 +3,7 @@
 | Problem | Link | Difficulty |
 |---------|------|------------|
 | Encode and Decode Strings | [https://leetcode.com/problems/encode-and-decode-strings/](https://leetcode.com/problems/encode-and-decode-strings/) | Medium |
+| Longest Consecutive Sequence | [https://leetcode.com/problems/longest-consecutive-sequence/](https://leetcode.com/problems/longest-consecutive-sequence/) | Medium |
 | Contains Duplicate | [https://leetcode.com/problems/contains-duplicate/](https://leetcode.com/problems/contains-duplicate/) | Easy |
 | Top k frequent elements | [https://leetcode.com/problems/top-k-frequent-elements/](https://leetcode.com/problems/top-k-frequent-elements/) | Medium |
 | Two Sum | [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/) | Easy |
@@ -39,6 +40,27 @@ class Solution:
                 else:
                     l += str(c)
         return res
+```
+
+## Longest Consecutive Sequence
+
+```py
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        numSet = set(nums)
+        longest = 0
+        
+        for num in nums:
+            if not (num - 1) in numSet:
+                next_num = num + 1
+                sequence_length = 1
+                while next_num in numSet:
+                    sequence_length += 1
+                    next_num += 1
+                longest = max(sequence_length, longest)
+
+        return longest
 ```
 
 ## Contains Duplicate
