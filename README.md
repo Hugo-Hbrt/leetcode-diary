@@ -18,6 +18,7 @@ and will generate / update READMEs accordingly.
 | 2025-06-22 | - Encode and Decode Strings<br>- Top k frequent elements |
 | 2025-06-30 | - Valid Palindrome<br>- Valid Sudoku |
 | 2025-07-01 | - Valid Parentheses<br>- Longest Consecutive Sequence |
+| 2025-07-02 | - Length of Last Word |
 
 ## 🧭 Roadmap
 
