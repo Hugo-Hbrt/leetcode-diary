@@ -4,7 +4,7 @@ This repository contains my journey to master Data Structures and Algorithms usi
 The progress is automatically updated by github actions using scripts that will count in the repo all solved problems,
 and will generate / update READMEs accordingly.
 
-## 📊 Total progress : 11 problems solved.
+## 📊 Total progress : 12 problems solved.
 
 - Languages: Python
 - Platforms: [LeetCode](https://leetcode.com/), [NeetCode](https://neetcode.io/)
@@ -18,8 +18,8 @@ config:
 xychart-beta
     title "Total progression over time"
     x-axis Date[2025-06-19, 2025-06-21, 2025-06-22, 2025-06-30, 2025-07-01, 2025-07-02]
-    y-axis "Number of problems" 0 --> 11
-    bar[3, 4, 6, 8, 10, 11]
+    y-axis "Number of problems" 0 --> 12
+    bar[3, 4, 6, 8, 10, 12]
 ```
 
 | Date | Problems |
@@ -29,7 +29,7 @@ xychart-beta
 | 2025-06-22 | - Encode and Decode Strings<br>- Top k frequent elements |
 | 2025-06-30 | - Valid Palindrome<br>- Valid Sudoku |
 | 2025-07-01 | - Valid Parentheses<br>- Longest Consecutive Sequence |
-| 2025-07-02 | - Length of Last Word |
+| 2025-07-02 | - Length of Last Word<br>- Binary Search |
 
 ## 🧭 Roadmap
 
