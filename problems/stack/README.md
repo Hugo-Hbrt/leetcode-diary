@@ -3,6 +3,7 @@
 | Problem | Link | Difficulty |
 |---------|------|------------|
 | Min Stack | [https://leetcode.com/problems/min-stack/](https://leetcode.com/problems/min-stack/) | Medium |
+| Evaluate Reverse Polish Notation | [https://leetcode.com/problems/evaluate-reverse-polish-notation/](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Medium |
 | Valid Parentheses | [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/) | Easy |
 
 ## Min Stack
@@ -45,6 +46,24 @@ class MinStack:
         return self.min_val
         
 
+```
+
+## Evaluate Reverse Polish Notation
+
+```py
+
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+
+        for token in tokens:
+            if token in ["+", "-", "*", "/"]:
+                op2, op1 = stack.pop(), stack.pop()
+                stack.append(str(int(eval(op1 + token + op2))))
+            else:
+                stack.append(token)
+        
+        return int(stack.pop())
 ```
 
 ## Valid Parentheses
