@@ -4,7 +4,7 @@ This repository contains my journey to master Data Structures and Algorithms usi
 The progress is automatically updated by github actions using scripts that will count in the repo all solved problems,
 and will generate / update READMEs accordingly.
 
-## 📊 Total progress : 16 problems solved.
+## 📊 Total progress : 17 problems solved.
 
 - Languages: Python
 - Platforms: [LeetCode](https://leetcode.com/), [NeetCode](https://neetcode.io/)
@@ -17,22 +17,23 @@ config:
 ---
 xychart-beta
     title "Total progression over time"
-    x-axis Date[2025-06-19, 2025-06-21, 2025-06-22, 2025-06-30, 2025-07-01, 2025-07-02, 2025-07-06, 2025-07-07, 2025-07-11]
-    y-axis "Number of problems" 0 --> 16
-    bar[3, 4, 6, 8, 10, 12, 13, 15, 16]
+    x-axis Date[2025-06-19, 2025-06-21, 2025-06-22, 2025-06-30, 2025-07-01, 2025-07-02, 2025-07-06, 2025-07-07, 2025-07-11, 2025-07-12]
+    y-axis "Number of problems" 0 --> 17
+    bar[3, 4, 6, 8, 10, 12, 13, 15, 16, 17]
 ```
 
 | Date | Problems |
 |------|----------|
-| 2025-06-19 | - Contains Duplicate<br>- Two Sum<br>- Valid Anagram |
+| 2025-06-19 | - Valid Anagram<br>- Contains Duplicate<br>- Two Sum |
 | 2025-06-21 | - Group anagrams |
 | 2025-06-22 | - Encode and Decode Strings<br>- Top k frequent elements |
 | 2025-06-30 | - Valid Palindrome<br>- Valid Sudoku |
 | 2025-07-01 | - Valid Parentheses<br>- Longest Consecutive Sequence |
 | 2025-07-02 | - Length of Last Word<br>- Binary Search |
 | 2025-07-06 | - Min Stack |
-| 2025-07-07 | - Two Sum II - Input Array Is Sorted<br>- Evaluate Reverse Polish Notation |
+| 2025-07-07 | - Evaluate Reverse Polish Notation<br>- Two Sum II - Input Array Is Sorted |
 | 2025-07-11 | - Search a 2D Matrix |
+| 2025-07-12 | - Guess Number Higher or Lower |
 
 ## 🧭 Roadmap
 
