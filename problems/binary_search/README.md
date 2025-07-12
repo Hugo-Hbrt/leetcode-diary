@@ -5,6 +5,7 @@
 | Guess Number Higher or Lower | [https://leetcode.com/problems/guess-number-higher-or-lower/](https://leetcode.com/problems/guess-number-higher-or-lower/) | Easy |
 | Binary Search | [https://leetcode.com/problems/binary-search/](https://leetcode.com/problems/binary-search/) | Easy |
 | Search a 2D Matrix | [https://leetcode.com/problems/search-a-2d-matrix/](https://leetcode.com/problems/search-a-2d-matrix/) | Medium |
+| First Bad Version | [https://leetcode.com/problems/first-bad-version/](https://leetcode.com/problems/first-bad-version/) | Easy |
 
 ## Guess Number Higher or Lower
 
@@ -69,4 +70,23 @@ class Solution:
         return False
 
        
+```
+
+## First Bad Version
+
+```py
+
+class Solution:
+    def firstBadVersion(self, n: int) -> int:
+        l, r = 1, n
+
+        while l <= r:
+            m = (l+r)//2
+
+            if isBadVersion(m):
+                r = m - 1
+            else:
+                l = m + 1
+        
+        return l
 ```
