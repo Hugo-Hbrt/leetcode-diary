@@ -4,6 +4,7 @@
 |---------|------|------------|
 | Evaluate Reverse Polish Notation | [https://leetcode.com/problems/evaluate-reverse-polish-notation/](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Medium |
 | Valid Parentheses | [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/) | Easy |
+| Daily Temperatures | [https://leetcode.com/problems/daily-temperatures/](https://leetcode.com/problems/daily-temperatures/) | Medium |
 | Min Stack | [https://leetcode.com/problems/min-stack/](https://leetcode.com/problems/min-stack/) | Medium |
 
 ## Evaluate Reverse Polish Notation
@@ -46,6 +47,25 @@ class Solution:
         
         return len(stack) == 0
 
+```
+
+## Daily Temperatures
+
+```py
+
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        result = [0] * len(temperatures)
+        stack = []
+        
+        for i, temp in enumerate(temperatures):
+            while stack and temp > stack[-1][0]:
+                oldTemp, oldIdx = stack.pop()
+                result[oldIdx] = i - oldIdx
+            stack.append((temp, i))            
+        
+        return result
+            
 ```
 
 ## Min Stack
