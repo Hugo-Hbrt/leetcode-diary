@@ -4,6 +4,7 @@
 |---------|------|------------|
 | Guess Number Higher or Lower | [https://leetcode.com/problems/guess-number-higher-or-lower/](https://leetcode.com/problems/guess-number-higher-or-lower/) | Easy |
 | Binary Search | [https://leetcode.com/problems/binary-search/](https://leetcode.com/problems/binary-search/) | Easy |
+| Koko Eating Bananas | [https://leetcode.com/problems/koko-eating-bananas/](https://leetcode.com/problems/koko-eating-bananas/) | Medium |
 | Search a 2D Matrix | [https://leetcode.com/problems/search-a-2d-matrix/](https://leetcode.com/problems/search-a-2d-matrix/) | Medium |
 | First Bad Version | [https://leetcode.com/problems/first-bad-version/](https://leetcode.com/problems/first-bad-version/) | Easy |
 
@@ -45,6 +46,29 @@ class Solution:
                 right = mid - 1
         
         return -1 
+```
+
+## Koko Eating Bananas
+
+```py
+
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        
+        def canEatAll(k: int) -> bool:
+            return sum([ceil(n/k) for n in piles]) <= h
+        
+        l, r = 1, max(piles)
+
+        while l <= r:
+            m = (l+r)//2
+
+            if canEatAll(m):
+                r = m - 1
+            else:
+                l = m + 1
+        
+        return l
 ```
 
 ## Search a 2D Matrix
