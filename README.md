@@ -4,7 +4,7 @@ This repository contains my journey to master Data Structures and Algorithms usi
 The progress is automatically updated by github actions using scripts that will count in the repo all solved problems,
 and will generate / update READMEs accordingly.
 
-## 📊 Total progress : 19 problems solved.
+## 📊 Total progress : 20 problems solved.
 
 - Languages: Python
 - Platforms: [LeetCode](https://leetcode.com/), [NeetCode](https://neetcode.io/)
@@ -17,9 +17,9 @@ config:
 ---
 xychart-beta
     title "Total progression over time"
-    x-axis Date[2025-06-19, 2025-06-21, 2025-06-22, 2025-06-30, 2025-07-01, 2025-07-02, 2025-07-06, 2025-07-07, 2025-07-11, 2025-07-12, 2025-07-15]
-    y-axis "Number of problems" 0 --> 19
-    bar[3, 4, 6, 8, 10, 12, 13, 15, 16, 18, 19]
+    x-axis Date[2025-06-19, 2025-06-21, 2025-06-22, 2025-06-30, 2025-07-01, 2025-07-02, 2025-07-06, 2025-07-07, 2025-07-11, 2025-07-12, 2025-07-15, 2025-07-16]
+    y-axis "Number of problems" 0 --> 20
+    bar[3, 4, 6, 8, 10, 12, 13, 15, 16, 18, 19, 20]
 ```
 
 | Date | Problems |
@@ -35,6 +35,7 @@ xychart-beta
 | 2025-07-11 | - Search a 2D Matrix |
 | 2025-07-12 | - Guess Number Higher or Lower<br>- First Bad Version |
 | 2025-07-15 | - Koko Eating Bananas |
+| 2025-07-16 | - Daily Temperatures |
 
 ## 🧭 Roadmap
 
