@@ -3,6 +3,7 @@
 | Problem | Link | Difficulty |
 |---------|------|------------|
 | Valid Palindrome | [https://leetcode.com/problems/valid-palindrome/](https://leetcode.com/problems/valid-palindrome/) | Easy |
+| 3Sum | [https://leetcode.com/problems/3sum/](https://leetcode.com/problems/3sum/) | Medium |
 | Two Sum II - Input Array Is Sorted | [https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | Medium |
 
 ## Valid Palindrome
@@ -21,6 +22,44 @@ class Solution:
             right -= 1
 
         return True
+```
+
+## 3Sum
+
+```py
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        def tripletsAreEqual(firstTriplet, secondTriplet):
+            a1 = sorted(firstTriplet)
+            a2 = sorted(secondTriplet)
+
+            for i in range(3):
+                if a1[i] != a2[i]:
+                    return False 
+
+            return True
+        
+        res = []
+        nums = sorted(nums)
+        for i in range(len(nums) - 2):
+            target = -nums[i]
+            j, k = i+1, len(nums)-1
+            while j<k:
+                s = nums[j] + nums[k]
+                if s > target:
+                    k -= 1
+                elif s < target:
+                    j += 1
+                else:
+                    alreadyInRes = False
+                    for triplet in res:
+                        alreadyInRes |= tripletsAreEqual(triplet, [nums[i], nums[j], nums[k]])
+                    
+                    if not alreadyInRes:
+                        res.append([nums[i], nums[j], nums[k]])
+                    j+=1
+        return res
 ```
 
 ## Two Sum II - Input Array Is Sorted
