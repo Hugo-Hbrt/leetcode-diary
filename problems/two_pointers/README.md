@@ -6,6 +6,7 @@
 | 3Sum | [https://leetcode.com/problems/3sum/](https://leetcode.com/problems/3sum/) | Medium |
 | Two Sum II - Input Array Is Sorted | [https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | Medium |
 | Container with most water | [https://leetcode.com/problems/container-with-most-water/](https://leetcode.com/problems/container-with-most-water/) | Medium |
+| Trapping Rain Water | [https://leetcode.com/problems/trapping-rain-water/](https://leetcode.com/problems/trapping-rain-water/) | Hard |
 
 ## Valid Palindrome
 
@@ -101,4 +102,30 @@ class Solution:
 
         return max_area
 
+```
+
+## Trapping Rain Water
+
+```py
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+       
+        res = 0
+        l, r = 0, len(height) - 1
+        max_left, max_right = height[l], height[r]
+        
+        while l <= r:
+            if max_left < max_right:
+                max_left = max(height[l], max_left)
+                res += max_left - height[l]
+                l += 1
+            else:
+                max_right = max(height[r], max_right)
+                res += max_right - height[r]
+                r -= 1
+        
+        return res
 ```
