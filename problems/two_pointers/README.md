@@ -5,6 +5,7 @@
 | Valid Palindrome | [https://leetcode.com/problems/valid-palindrome/](https://leetcode.com/problems/valid-palindrome/) | Easy |
 | 3Sum | [https://leetcode.com/problems/3sum/](https://leetcode.com/problems/3sum/) | Medium |
 | Two Sum II - Input Array Is Sorted | [https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | Medium |
+| Container with most water | [https://leetcode.com/problems/container-with-most-water/](https://leetcode.com/problems/container-with-most-water/) | Medium |
 
 ## Valid Palindrome
 
@@ -78,5 +79,26 @@ class Solution:
         
         return [left + 1, right + 1]
         
+
+```
+
+## Container with most water
+
+```py
+
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        n = len(heights) - 1
+        max_area = 0
+        l, r = 0, n
+
+        while l < r:
+            max_area = max(min(heights[l], heights[r]) * (r-l), max_area)
+            if heights[l] >= heights[r]:
+                r -= 1
+            else:
+                l += 1
+
+        return max_area
 
 ```
