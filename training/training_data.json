@@ -8,31 +8,31 @@
     },
     "contains_duplicate": {
         "title": "Contains Duplicate",
-        "last_reviewed": "2025-06-19",
-        "next_review": "2025-06-20",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-18",
+        "next_review": "2025-07-20",
+        "interval": 2,
+        "success_streak": 1
     },
     "two_sum": {
         "title": "Two Sum",
-        "last_reviewed": "2025-06-19",
-        "next_review": "2025-06-20",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-18",
+        "next_review": "2025-07-20",
+        "interval": 2,
+        "success_streak": 1
     },
     "group_anagrams": {
         "title": "Group anagrams",
-        "last_reviewed": "2025-06-21",
-        "next_review": "2025-06-22",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-18",
+        "next_review": "2025-07-20",
+        "interval": 2,
+        "success_streak": 1
     },
     "encode_and_decode_strings": {
         "title": "Encode and Decode Strings",
-        "last_reviewed": "2025-06-22",
-        "next_review": "2025-06-23",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-18",
+        "next_review": "2025-07-20",
+        "interval": 2,
+        "success_streak": 1
     },
     "top_k_frequent_elements": {
         "title": "Top k frequent elements",
@@ -143,6 +143,13 @@
         "title": "Search in a Binary Search Tree",
         "last_reviewed": "2025-07-16",
         "next_review": "2025-07-17",
+        "interval": 1,
+        "success_streak": 0
+    },
+    "3sum": {
+        "title": "3Sum",
+        "last_reviewed": "2025-07-17",
+        "next_review": "2025-07-18",
         "interval": 1,
         "success_streak": 0
     }
