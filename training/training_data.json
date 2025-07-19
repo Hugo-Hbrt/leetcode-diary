@@ -1,10 +1,10 @@
 {
     "valid_anagram": {
         "title": "Valid Anagram",
-        "last_reviewed": "2025-07-17",
-        "next_review": "2025-07-19",
-        "interval": 2,
-        "success_streak": 1
+        "last_reviewed": "2025-07-19",
+        "next_review": "2025-07-23",
+        "interval": 4,
+        "success_streak": 2
     },
     "contains_duplicate": {
         "title": "Contains Duplicate",
@@ -36,24 +36,24 @@
     },
     "top_k_frequent_elements": {
         "title": "Top k frequent elements",
-        "last_reviewed": "2025-06-22",
-        "next_review": "2025-06-23",
+        "last_reviewed": "2025-07-19",
+        "next_review": "2025-07-20",
         "interval": 1,
         "success_streak": 0
     },
     "valid_palindrome": {
         "title": "Valid Palindrome",
-        "last_reviewed": "2025-06-30",
-        "next_review": "2025-07-01",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-19",
+        "next_review": "2025-07-21",
+        "interval": 2,
+        "success_streak": 1
     },
     "valid_sudoku": {
         "title": "Valid Sudoku",
-        "last_reviewed": "2025-06-30",
-        "next_review": "2025-07-01",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-19",
+        "next_review": "2025-07-21",
+        "interval": 2,
+        "success_streak": 1
     },
     "valid_parentheses": {
         "title": "Valid Parentheses",
@@ -150,6 +150,13 @@
         "title": "3Sum",
         "last_reviewed": "2025-07-17",
         "next_review": "2025-07-18",
+        "interval": 1,
+        "success_streak": 0
+    },
+    "container_with_most_water": {
+        "title": "Container with most water",
+        "last_reviewed": "2025-07-18",
+        "next_review": "2025-07-19",
         "interval": 1,
         "success_streak": 0
     }
