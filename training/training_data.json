@@ -8,38 +8,38 @@
     },
     "contains_duplicate": {
         "title": "Contains Duplicate",
-        "last_reviewed": "2025-07-18",
-        "next_review": "2025-07-20",
-        "interval": 2,
-        "success_streak": 1
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-24",
+        "interval": 4,
+        "success_streak": 2
     },
     "two_sum": {
         "title": "Two Sum",
-        "last_reviewed": "2025-07-18",
-        "next_review": "2025-07-20",
-        "interval": 2,
-        "success_streak": 1
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-24",
+        "interval": 4,
+        "success_streak": 2
     },
     "group_anagrams": {
         "title": "Group anagrams",
-        "last_reviewed": "2025-07-18",
-        "next_review": "2025-07-20",
-        "interval": 2,
-        "success_streak": 1
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-21",
+        "interval": 1,
+        "success_streak": 0
     },
     "encode_and_decode_strings": {
         "title": "Encode and Decode Strings",
-        "last_reviewed": "2025-07-18",
-        "next_review": "2025-07-20",
-        "interval": 2,
-        "success_streak": 1
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-24",
+        "interval": 4,
+        "success_streak": 2
     },
     "top_k_frequent_elements": {
         "title": "Top k frequent elements",
-        "last_reviewed": "2025-07-19",
-        "next_review": "2025-07-20",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-22",
+        "interval": 2,
+        "success_streak": 1
     },
     "valid_palindrome": {
         "title": "Valid Palindrome",
@@ -57,31 +57,31 @@
     },
     "valid_parentheses": {
         "title": "Valid Parentheses",
-        "last_reviewed": "2025-07-01",
-        "next_review": "2025-07-02",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-22",
+        "interval": 2,
+        "success_streak": 1
     },
     "longest_consecutive_sequence": {
         "title": "Longest Consecutive Sequence",
-        "last_reviewed": "2025-07-01",
-        "next_review": "2025-07-02",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-22",
+        "interval": 2,
+        "success_streak": 1
     },
     "length_of_last_word": {
         "title": "Length of Last Word",
-        "last_reviewed": "2025-07-02",
-        "next_review": "2025-07-03",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-22",
+        "interval": 2,
+        "success_streak": 1
     },
     "binary_search": {
         "title": "Binary Search",
-        "last_reviewed": "2025-07-02",
-        "next_review": "2025-07-03",
-        "interval": 1,
-        "success_streak": 0
+        "last_reviewed": "2025-07-20",
+        "next_review": "2025-07-22",
+        "interval": 2,
+        "success_streak": 1
     },
     "min_stack": {
         "title": "Min Stack",
@@ -155,6 +155,13 @@
     },
     "container_with_most_water": {
         "title": "Container with most water",
+        "last_reviewed": "2025-07-18",
+        "next_review": "2025-07-19",
+        "interval": 1,
+        "success_streak": 0
+    },
+    "trapping_rain_water": {
+        "title": "Trapping Rain Water",
         "last_reviewed": "2025-07-18",
         "next_review": "2025-07-19",
         "interval": 1,
