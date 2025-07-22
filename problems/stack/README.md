@@ -2,11 +2,40 @@
 
 | Problem | Link | Difficulty |
 |---------|------|------------|
+| Largest Rectangle in Histogram | [https://leetcode.com/problems/largest-rectangle-in-histogram/](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard |
 | Car Fleet | [https://leetcode.com/problems/car-fleet/](https://leetcode.com/problems/car-fleet/) | Medium |
 | Evaluate Reverse Polish Notation | [https://leetcode.com/problems/evaluate-reverse-polish-notation/](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Medium |
 | Valid Parentheses | [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/) | Easy |
 | Daily Temperatures | [https://leetcode.com/problems/daily-temperatures/](https://leetcode.com/problems/daily-temperatures/) | Medium |
 | Min Stack | [https://leetcode.com/problems/min-stack/](https://leetcode.com/problems/min-stack/) | Medium |
+
+## Largest Rectangle in Histogram
+
+```py
+
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        stack = [] # (index, height)
+        max_area = 0
+        
+        for i,h in enumerate(heights):
+            i_offset = i
+            if len(stack) > 0: 
+                while stack and stack[-1][1] > h:
+                    (old_i, old_h) = stack.pop()
+                    area = (i - old_i) * old_h
+                    max_area = max(max_area, area)
+                    i_offset = old_i
+                
+            stack.append((i_offset,h))
+        
+        n = len(heights)
+        for (i, h) in stack:
+            area = h * (n - i)
+            max_area = max(max_area, area)
+        
+        return max_area
+```
 
 ## Car Fleet
 
