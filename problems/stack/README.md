@@ -2,10 +2,34 @@
 
 | Problem | Link | Difficulty |
 |---------|------|------------|
+| Car Fleet | [https://leetcode.com/problems/car-fleet/](https://leetcode.com/problems/car-fleet/) | Medium |
 | Evaluate Reverse Polish Notation | [https://leetcode.com/problems/evaluate-reverse-polish-notation/](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Medium |
 | Valid Parentheses | [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/) | Easy |
 | Daily Temperatures | [https://leetcode.com/problems/daily-temperatures/](https://leetcode.com/problems/daily-temperatures/) | Medium |
 | Min Stack | [https://leetcode.com/problems/min-stack/](https://leetcode.com/problems/min-stack/) | Medium |
+
+## Car Fleet
+
+```py
+
+from math import ceil
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        
+        speed = [s for _, s in sorted(zip(position, speed))]
+        position = sorted(position)
+
+        steps = [((target - p)/s) for p, s in zip(position, speed)]
+        stack = []
+        stack.append(steps[0])
+
+        for step in steps[1:]:
+            while stack and step >= stack[-1]:
+                stack.pop()        
+            stack.append(step)
+        
+        return len(stack)
+```
 
 ## Evaluate Reverse Polish Notation
 
