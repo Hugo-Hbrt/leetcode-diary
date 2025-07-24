@@ -1,6 +1,6 @@
 import curses
 from storage import load_data, save_data
-from spaced_repetition_service import get_due_cards, mark_review
+from spaced_repetition_service import get_due_cards, mark_review, refresh_due_cards
 
 def main(stdscr):
     curses.curs_set(0)  # Hide cursor
@@ -62,7 +62,9 @@ def main(stdscr):
 
             mark_review(selected, result)
             save_data(cards)
-            due_cards = get_due_cards(cards)  # refresh list
+
+            due_cards = refresh_due_cards(cards, selected)
+            
             if not due_cards:
                 stdscr.clear()
                 stdscr.addstr(0, 0, "✅ All cards reviewed for today.")
@@ -80,12 +82,6 @@ def review_card(stdscr, card):
     stdscr.addstr(2, 0, f"🤔 Did you recall \"{card.title}\" correctly?")
     stdscr.addstr(3, 0, "y = Yes | n = No | q = Abort")
     stdscr.refresh()
-    stdscr.getch()
-
-def prompt_success(stdscr, card):
-    stdscr.clear()
-    stdscr.addstr(0, 0, f"🤔 Did you recall \"{card.title}\" correctly?")
-    stdscr.addstr(2, 0, "y = Yes | n = No | q = Abort")
 
     while True:
         key = stdscr.getch()

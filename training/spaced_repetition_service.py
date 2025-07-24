@@ -3,10 +3,17 @@ from typing import Dict, List
 from models import Card
 
 MAX_REVIEW_INTERVAL = 60
+
 def get_due_cards(cards: Dict[str, Card]) -> List[Card]:
     today = date.today()
     return [card for card in cards.values() if card.next_review <= today]
 
+def refresh_due_cards(due_cards: List[Card], reviewed_card: Card) -> List[Card]:    
+    if reviewed_card.next_review <= date.today():
+        return due_cards  # No change needed
+    
+    return [card for card in due_cards if card != reviewed_card]
+    
 def mark_review(card: Card, success: bool) -> None:
     today = date.today()
     card.last_reviewed = today
