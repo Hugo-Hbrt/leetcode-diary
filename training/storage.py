@@ -3,11 +3,11 @@ from pathlib import Path
 from typing import Dict
 from models import Card, dict_to_card, card_to_dict
 
-DATA_FILE = Path("training_data.json")
+DATA_FILE = Path("training/training_data.json")
 
 def load_data() -> Dict[str, Card]:
     if not DATA_FILE.exists():
-        return {}
+        raise FileNotFoundError(f"Data file {DATA_FILE} does not exist. Please ensure the file is created before loading data.")
 
     with open(DATA_FILE, "r") as f:
         raw_data = json.load(f)

@@ -1,6 +1,7 @@
 import curses
 from storage import load_data, save_data
 from spaced_repetition_service import get_due_cards, mark_review, refresh_due_cards
+from sync_training_data import update_training_data
 
 def main(stdscr):
     curses.curs_set(0)  # Hide cursor
@@ -93,4 +94,5 @@ def review_card(stdscr, card):
             return None  # exit gracefully
 
 if __name__ == "__main__":
+    update_training_data()
     curses.wrapper(main)
