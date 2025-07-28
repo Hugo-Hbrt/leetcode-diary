@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 *.pyo
 playground/
+
+# Ignore training data
+training/training_data.json
