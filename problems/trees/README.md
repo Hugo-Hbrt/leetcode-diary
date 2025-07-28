@@ -5,6 +5,7 @@
 | Search in a Binary Search Tree | [https://leetcode.com/problems/search-in-a-binary-search-tree/](https://leetcode.com/problems/search-in-a-binary-search-tree/) | Easy |
 | Insert into a Binary Search Tree | [https://leetcode.com/problems/insert-into-a-binary-search-tree/](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | Medium |
 | Delete Node in a BST | [https://leetcode.com/problems/delete-node-in-a-bst/](https://leetcode.com/problems/delete-node-in-a-bst/) | Medium |
+| Binary Tree Inorder Traversal | [https://leetcode.com/problems/binary-tree-inorder-traversal/](https://leetcode.com/problems/binary-tree-inorder-traversal/) | Easy |
 
 ## Search in a Binary Search Tree
 
@@ -91,4 +92,29 @@ class Solution:
                 root.val = min_val
 
         return root
+```
+
+## Binary Tree Inorder Traversal
+
+```py
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+        def inorder(node):
+            if not node:
+                return
+            
+            inorder(node.left)
+            res.append(node.val)
+            inorder(node.right)
+        
+        inorder(root)
+        return res
 ```
