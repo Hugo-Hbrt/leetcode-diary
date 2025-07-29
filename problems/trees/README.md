@@ -5,6 +5,7 @@
 | Search in a Binary Search Tree | [https://leetcode.com/problems/search-in-a-binary-search-tree/](https://leetcode.com/problems/search-in-a-binary-search-tree/) | Easy |
 | Insert into a Binary Search Tree | [https://leetcode.com/problems/insert-into-a-binary-search-tree/](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | Medium |
 | Delete Node in a BST | [https://leetcode.com/problems/delete-node-in-a-bst/](https://leetcode.com/problems/delete-node-in-a-bst/) | Medium |
+| Kth Smallest Element in a BST | [https://leetcode.com/problems/kth-smallest-element-in-a-bst/](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | Medium |
 | Binary Tree Inorder Traversal | [https://leetcode.com/problems/binary-tree-inorder-traversal/](https://leetcode.com/problems/binary-tree-inorder-traversal/) | Easy |
 
 ## Search in a Binary Search Tree
@@ -92,6 +93,36 @@ class Solution:
                 root.val = min_val
 
         return root
+```
+
+## Kth Smallest Element in a BST
+
+```py
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        res = None 
+        i = 0
+        
+        def inorder(node, i, res):
+            nonlocal i, res # To avoid unbound local variable error.
+            if not node:
+                return
+            
+            inorder(node.left)
+            i += 1
+            if i == k:
+                res = node.val
+            inorder(node.right)
+        
+        inorder(root)
+        return res
 ```
 
 ## Binary Tree Inorder Traversal
