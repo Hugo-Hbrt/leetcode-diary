@@ -3,6 +3,7 @@
 | Problem | Link | Difficulty |
 |---------|------|------------|
 | Construct Binary Tree from Preorder and Inorder Traversal | [https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
+| Binary Tree Right Side View | [https://leetcode.com/problems/binary-tree-right-side-view/](https://leetcode.com/problems/binary-tree-right-side-view/) | Medium |
 | Search in a Binary Search Tree | [https://leetcode.com/problems/search-in-a-binary-search-tree/](https://leetcode.com/problems/search-in-a-binary-search-tree/) | Easy |
 | Insert into a Binary Search Tree | [https://leetcode.com/problems/insert-into-a-binary-search-tree/](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | Medium |
 | Binary Tree Level Order Traversal | [https://leetcode.com/problems/binary-tree-level-order-traversal/](https://leetcode.com/problems/binary-tree-level-order-traversal/) | Medium |
@@ -43,6 +44,36 @@ class Solution:
             return root
         
         return dfs(0, len(preorder) - 1)
+```
+
+## Binary Tree Right Side View
+
+```py
+
+
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        
+        res = []
+        queue = []
+        queue.append(root)
+        
+        while len(queue) > 0:
+            n = len(queue)
+            for i in range(n):
+                node = queue.pop(0)
+                
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+
+                if i == n-1:
+                    res.append(node.val)
+        
+        return res
 ```
 
 ## Search in a Binary Search Tree
