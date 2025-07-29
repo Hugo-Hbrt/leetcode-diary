@@ -2,11 +2,48 @@
 
 | Problem | Link | Difficulty |
 |---------|------|------------|
+| Construct Binary Tree from Preorder and Inorder Traversal | [https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | Search in a Binary Search Tree | [https://leetcode.com/problems/search-in-a-binary-search-tree/](https://leetcode.com/problems/search-in-a-binary-search-tree/) | Easy |
 | Insert into a Binary Search Tree | [https://leetcode.com/problems/insert-into-a-binary-search-tree/](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | Medium |
+| Binary Tree Level Order Traversal | [https://leetcode.com/problems/binary-tree-level-order-traversal/](https://leetcode.com/problems/binary-tree-level-order-traversal/) | Medium |
 | Delete Node in a BST | [https://leetcode.com/problems/delete-node-in-a-bst/](https://leetcode.com/problems/delete-node-in-a-bst/) | Medium |
 | Kth Smallest Element in a BST | [https://leetcode.com/problems/kth-smallest-element-in-a-bst/](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | Medium |
 | Binary Tree Inorder Traversal | [https://leetcode.com/problems/binary-tree-inorder-traversal/](https://leetcode.com/problems/binary-tree-inorder-traversal/) | Easy |
+
+## Construct Binary Tree from Preorder and Inorder Traversal
+
+```py
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        indexes = dict()
+        for i, num in enumerate(inorder):
+            indexes[num] = i
+        
+        pre_idx = 0
+        
+        def dfs(l, r):
+            nonlocal pre_idx
+            if l > r:
+                return None
+            
+            val = preorder[pre_idx]
+            root = TreeNode(val)
+            pre_idx += 1
+            mid = indexes[val]
+            root.left = dfs(l, mid - 1)
+            root.right = dfs(mid + 1, r)
+
+            return root
+        
+        return dfs(0, len(preorder) - 1)
+```
 
 ## Search in a Binary Search Tree
 
@@ -47,6 +84,43 @@ class Solution:
             root.left = self.insertIntoBST(root.left, val)
 
         return root
+
+```
+
+## Binary Tree Level Order Traversal
+
+```py
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+
+        res = []
+        queue = []
+
+        queue.append(root)
+
+        while len(queue) > 0:
+            layer = []
+            for i in range(len(queue)):
+                
+                node = queue.pop(0)
+                layer.append(node.val)
+
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            
+            res.append(layer)
+        
+        return res
 
 ```
 
