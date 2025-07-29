@@ -4,7 +4,7 @@ This repository contains my journey to master Data Structures and Algorithms usi
 The progress is automatically updated by github actions using scripts that will count in the repo all solved problems,
 and will generate / update READMEs accordingly.
 
-## 📊 Total progress : 30 problems solved.
+## 📊 Total progress : 32 problems solved.
 
 - Languages: Python
 - Platforms: [LeetCode](https://leetcode.com/), [NeetCode](https://neetcode.io/)
@@ -17,9 +17,9 @@ config:
 ---
 xychart-beta
     title "Total progression over time"
-    x-axis Date[2025-06-19, 2025-06-21, 2025-06-22, 2025-06-30, 2025-07-01, 2025-07-02, 2025-07-06, 2025-07-07, 2025-07-11, 2025-07-12, 2025-07-15, 2025-07-16, 2025-07-17, 2025-07-18, 2025-07-19, 2025-07-22, 2025-07-28]
-    y-axis "Number of problems" 0 --> 30
-    bar[3, 4, 6, 8, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 28, 30]
+    x-axis Date[2025-06-19, 2025-06-21, 2025-06-22, 2025-06-30, 2025-07-01, 2025-07-02, 2025-07-06, 2025-07-07, 2025-07-11, 2025-07-12, 2025-07-15, 2025-07-16, 2025-07-17, 2025-07-18, 2025-07-19, 2025-07-22, 2025-07-28, 2025-07-29]
+    y-axis "Number of problems" 0 --> 32
+    bar[3, 4, 6, 8, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 28, 30, 32]
 ```
 
 | Date | Problems |
@@ -41,6 +41,7 @@ xychart-beta
 | 2025-07-19 | - Car Fleet |
 | 2025-07-22 | - Largest Rectangle in Histogram<br>- Insert into a Binary Search Tree<br>- Delete Node in a BST |
 | 2025-07-28 | - Kth Smallest Element in a BST<br>- Binary Tree Inorder Traversal |
+| 2025-07-29 | - Construct Binary Tree from Preorder and Inorder Traversal<br>- Binary Tree Level Order Traversal |
 
 ## 🧭 Roadmap
 
