@@ -4,9 +4,14 @@ from models import Card
 
 MAX_REVIEW_INTERVAL = 60
 
+def sort_by_oldest_next_review_date(cards: List[Card]):
+    cards.sort(key=lambda x: x.next_review)
+
 def get_due_cards(cards: Dict[str, Card]) -> List[Card]:
     today = date.today()
-    return [card for card in cards.values() if card.next_review <= today]
+    cards_list = [card for card in cards.values() if card.next_review <= today]
+    sort_by_oldest_next_review_date(cards_list)
+    return cards_list
 
 def refresh_due_cards(due_cards: List[Card], reviewed_card: Card) -> List[Card]:    
     if reviewed_card.next_review <= date.today():
