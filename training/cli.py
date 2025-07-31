@@ -30,7 +30,6 @@ def main(stdscr):
             actual_idx = idx + scroll_offset
             if actual_idx == current_selection:
                 stdscr.attron(curses.A_REVERSE)
-            
             stdscr.addstr(idx + 2, 2, f"{card.title[:max_width - 2]}")
             
             if actual_idx == current_selection:
@@ -64,7 +63,7 @@ def main(stdscr):
             mark_review(selected, result)
             save_data(cards)
 
-            due_cards = refresh_due_cards(cards, selected)
+            due_cards = refresh_due_cards(due_cards, selected)
             
             if not due_cards:
                 stdscr.clear()
