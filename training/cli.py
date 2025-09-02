@@ -30,7 +30,7 @@ def main(stdscr):
             actual_idx = idx + scroll_offset
             if actual_idx == current_selection:
                 stdscr.attron(curses.A_REVERSE)
-            stdscr.addstr(idx + 2, 2, f"{card.title[:max_width - 2]}")
+            stdscr.addstr(idx + 2, 2, f"{card.title[:max_width - 2]} | {card.next_review}")
             
             if actual_idx == current_selection:
                 stdscr.attroff(curses.A_REVERSE)
