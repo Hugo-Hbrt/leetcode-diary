@@ -2,39 +2,29 @@
 
 | Problem | Link | Difficulty |
 |---------|------|------------|
-| Largest Rectangle in Histogram | [https://leetcode.com/problems/largest-rectangle-in-histogram/](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard |
-| Car Fleet | [https://leetcode.com/problems/car-fleet/](https://leetcode.com/problems/car-fleet/) | Medium |
 | Evaluate Reverse Polish Notation | [https://leetcode.com/problems/evaluate-reverse-polish-notation/](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Medium |
+| Car Fleet | [https://leetcode.com/problems/car-fleet/](https://leetcode.com/problems/car-fleet/) | Medium |
 | Valid Parentheses | [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/) | Easy |
 | Daily Temperatures | [https://leetcode.com/problems/daily-temperatures/](https://leetcode.com/problems/daily-temperatures/) | Medium |
 | Min Stack | [https://leetcode.com/problems/min-stack/](https://leetcode.com/problems/min-stack/) | Medium |
+| Largest Rectangle in Histogram | [https://leetcode.com/problems/largest-rectangle-in-histogram/](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard |
 
-## Largest Rectangle in Histogram
+## Evaluate Reverse Polish Notation
 
 ```py
 
 class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
-        stack = [] # (index, height)
-        max_area = 0
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+
+        for token in tokens:
+            if token in ["+", "-", "*", "/"]:
+                op2, op1 = stack.pop(), stack.pop()
+                stack.append(str(int(eval(op1 + token + op2))))
+            else:
+                stack.append(token)
         
-        for i,h in enumerate(heights):
-            i_offset = i
-            if len(stack) > 0: 
-                while stack and stack[-1][1] > h:
-                    (old_i, old_h) = stack.pop()
-                    area = (i - old_i) * old_h
-                    max_area = max(max_area, area)
-                    i_offset = old_i
-                
-            stack.append((i_offset,h))
-        
-        n = len(heights)
-        for (i, h) in stack:
-            area = h * (n - i)
-            max_area = max(max_area, area)
-        
-        return max_area
+        return int(stack.pop())
 ```
 
 ## Car Fleet
@@ -58,24 +48,6 @@ class Solution:
             stack.append(step)
         
         return len(stack)
-```
-
-## Evaluate Reverse Polish Notation
-
-```py
-
-class Solution:
-    def evalRPN(self, tokens: List[str]) -> int:
-        stack = []
-
-        for token in tokens:
-            if token in ["+", "-", "*", "/"]:
-                op2, op1 = stack.pop(), stack.pop()
-                stack.append(str(int(eval(op1 + token + op2))))
-            else:
-                stack.append(token)
-        
-        return int(stack.pop())
 ```
 
 ## Valid Parentheses
@@ -161,4 +133,32 @@ class MinStack:
         return self.min_val
         
 
+```
+
+## Largest Rectangle in Histogram
+
+```py
+
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        stack = [] # (index, height)
+        max_area = 0
+        
+        for i,h in enumerate(heights):
+            i_offset = i
+            if len(stack) > 0: 
+                while stack and stack[-1][1] > h:
+                    (old_i, old_h) = stack.pop()
+                    area = (i - old_i) * old_h
+                    max_area = max(max_area, area)
+                    i_offset = old_i
+                
+            stack.append((i_offset,h))
+        
+        n = len(heights)
+        for (i, h) in stack:
+            area = h * (n - i)
+            max_area = max(max_area, area)
+        
+        return max_area
 ```

@@ -2,16 +2,16 @@
 
 | Problem | Link | Difficulty |
 |---------|------|------------|
-| Construct Binary Tree from Preorder and Inorder Traversal | [https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
-| Binary Tree Right Side View | [https://leetcode.com/problems/binary-tree-right-side-view/](https://leetcode.com/problems/binary-tree-right-side-view/) | Medium |
-| Search in a Binary Search Tree | [https://leetcode.com/problems/search-in-a-binary-search-tree/](https://leetcode.com/problems/search-in-a-binary-search-tree/) | Easy |
-| Insert into a Binary Search Tree | [https://leetcode.com/problems/insert-into-a-binary-search-tree/](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | Medium |
-| Binary Tree Level Order Traversal | [https://leetcode.com/problems/binary-tree-level-order-traversal/](https://leetcode.com/problems/binary-tree-level-order-traversal/) | Medium |
-| Delete Node in a BST | [https://leetcode.com/problems/delete-node-in-a-bst/](https://leetcode.com/problems/delete-node-in-a-bst/) | Medium |
-| Kth Smallest Element in a BST | [https://leetcode.com/problems/kth-smallest-element-in-a-bst/](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | Medium |
 | Binary Tree Inorder Traversal | [https://leetcode.com/problems/binary-tree-inorder-traversal/](https://leetcode.com/problems/binary-tree-inorder-traversal/) | Easy |
+| Search in a Binary Search Tree | [https://leetcode.com/problems/search-in-a-binary-search-tree/](https://leetcode.com/problems/search-in-a-binary-search-tree/) | Easy |
+| Kth Smallest Element in a BST | [https://leetcode.com/problems/kth-smallest-element-in-a-bst/](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | Medium |
+| Delete Node in a BST | [https://leetcode.com/problems/delete-node-in-a-bst/](https://leetcode.com/problems/delete-node-in-a-bst/) | Medium |
+| Binary Tree Right Side View | [https://leetcode.com/problems/binary-tree-right-side-view/](https://leetcode.com/problems/binary-tree-right-side-view/) | Medium |
+| Binary Tree Level Order Traversal | [https://leetcode.com/problems/binary-tree-level-order-traversal/](https://leetcode.com/problems/binary-tree-level-order-traversal/) | Medium |
+| Insert into a Binary Search Tree | [https://leetcode.com/problems/insert-into-a-binary-search-tree/](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | Medium |
+| Construct Binary Tree from Preorder and Inorder Traversal | [https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 
-## Construct Binary Tree from Preorder and Inorder Traversal
+## Binary Tree Inorder Traversal
 
 ```py
 
@@ -20,59 +20,19 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
+        
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        indexes = dict()
-        for i, num in enumerate(inorder):
-            indexes[num] = i
-        
-        pre_idx = 0
-        
-        def dfs(l, r):
-            nonlocal pre_idx
-            if l > r:
-                return None
-            
-            val = preorder[pre_idx]
-            root = TreeNode(val)
-            pre_idx += 1
-            mid = indexes[val]
-            root.left = dfs(l, mid - 1)
-            root.right = dfs(mid + 1, r)
-
-            return root
-        
-        return dfs(0, len(preorder) - 1)
-```
-
-## Binary Tree Right Side View
-
-```py
-
-
-class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-        if not root:
-            return []
-        
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res = []
-        queue = []
-        queue.append(root)
+        def inorder(node):
+            if not node:
+                return
+            
+            inorder(node.left)
+            res.append(node.val)
+            inorder(node.right)
         
-        while len(queue) > 0:
-            n = len(queue)
-            for i in range(n):
-                node = queue.pop(0)
-                
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-
-                if i == n-1:
-                    res.append(node.val)
-        
+        inorder(root)
         return res
 ```
 
@@ -94,7 +54,7 @@ class Solution:
 
 ```
 
-## Insert into a Binary Search Tree
+## Kth Smallest Element in a BST
 
 ```py
 
@@ -105,54 +65,23 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
-        if not root:
-            return TreeNode(val)
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        res = None 
+        i = 0
         
-        if root.val < val:
-            root.right = self.insertIntoBST(root.right, val)
-        elif root.val > val:
-            root.left = self.insertIntoBST(root.left, val)
-
-        return root
-
-```
-
-## Binary Tree Level Order Traversal
-
-```py
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if not root:
-            return []
-
-        res = []
-        queue = []
-
-        queue.append(root)
-
-        while len(queue) > 0:
-            layer = []
-            for i in range(len(queue)):
-                
-                node = queue.pop(0)
-                layer.append(node.val)
-
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
+        def inorder(node, i, res):
+            nonlocal i, res # To avoid unbound local variable error.
+            if not node:
+                return
             
-            res.append(layer)
+            inorder(node.left)
+            i += 1
+            if i == k:
+                res = node.val
+            inorder(node.right)
         
+        inorder(root)
         return res
-
 ```
 
 ## Delete Node in a BST
@@ -200,37 +129,37 @@ class Solution:
         return root
 ```
 
-## Kth Smallest Element in a BST
+## Binary Tree Right Side View
 
 ```py
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
-    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        res = None 
-        i = 0
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
         
-        def inorder(node, i, res):
-            nonlocal i, res # To avoid unbound local variable error.
-            if not node:
-                return
-            
-            inorder(node.left)
-            i += 1
-            if i == k:
-                res = node.val
-            inorder(node.right)
+        res = []
+        queue = []
+        queue.append(root)
         
-        inorder(root)
+        while len(queue) > 0:
+            n = len(queue)
+            for i in range(n):
+                node = queue.pop(0)
+                
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+
+                if i == n-1:
+                    res.append(node.val)
+        
         return res
 ```
 
-## Binary Tree Inorder Traversal
+## Binary Tree Level Order Traversal
 
 ```py
 
@@ -239,18 +168,89 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-        
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+
         res = []
-        def inorder(node):
-            if not node:
-                return
+        queue = []
+
+        queue.append(root)
+
+        while len(queue) > 0:
+            layer = []
+            for i in range(len(queue)):
+                
+                node = queue.pop(0)
+                layer.append(node.val)
+
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
             
-            inorder(node.left)
-            res.append(node.val)
-            inorder(node.right)
+            res.append(layer)
         
-        inorder(root)
         return res
+
+```
+
+## Insert into a Binary Search Tree
+
+```py
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if not root:
+            return TreeNode(val)
+        
+        if root.val < val:
+            root.right = self.insertIntoBST(root.right, val)
+        elif root.val > val:
+            root.left = self.insertIntoBST(root.left, val)
+
+        return root
+
+```
+
+## Construct Binary Tree from Preorder and Inorder Traversal
+
+```py
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        indexes = dict()
+        for i, num in enumerate(inorder):
+            indexes[num] = i
+        
+        pre_idx = 0
+        
+        def dfs(l, r):
+            nonlocal pre_idx
+            if l > r:
+                return None
+            
+            val = preorder[pre_idx]
+            root = TreeNode(val)
+            pre_idx += 1
+            mid = indexes[val]
+            root.left = dfs(l, mid - 1)
+            root.right = dfs(mid + 1, r)
+
+            return root
+        
+        return dfs(0, len(preorder) - 1)
 ```

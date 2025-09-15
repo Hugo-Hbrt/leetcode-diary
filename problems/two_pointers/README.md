@@ -2,11 +2,30 @@
 
 | Problem | Link | Difficulty |
 |---------|------|------------|
-| Valid Palindrome | [https://leetcode.com/problems/valid-palindrome/](https://leetcode.com/problems/valid-palindrome/) | Easy |
-| 3Sum | [https://leetcode.com/problems/3sum/](https://leetcode.com/problems/3sum/) | Medium |
 | Two Sum II - Input Array Is Sorted | [https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | Medium |
-| Container with most water | [https://leetcode.com/problems/container-with-most-water/](https://leetcode.com/problems/container-with-most-water/) | Medium |
+| Valid Palindrome | [https://leetcode.com/problems/valid-palindrome/](https://leetcode.com/problems/valid-palindrome/) | Easy |
 | Trapping Rain Water | [https://leetcode.com/problems/trapping-rain-water/](https://leetcode.com/problems/trapping-rain-water/) | Hard |
+| 3Sum | [https://leetcode.com/problems/3sum/](https://leetcode.com/problems/3sum/) | Medium |
+| Container with most water | [https://leetcode.com/problems/container-with-most-water/](https://leetcode.com/problems/container-with-most-water/) | Medium |
+
+## Two Sum II - Input Array Is Sorted
+
+```py
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        left, right = 0, len(numbers) - 1
+
+        while numbers[left] + numbers[right] != target:
+            if numbers[left] + numbers[right] < target:
+                left += 1
+            else:
+                right -= 1
+        
+        return [left + 1, right + 1]
+        
+
+```
 
 ## Valid Palindrome
 
@@ -24,6 +43,32 @@ class Solution:
             right -= 1
 
         return True
+```
+
+## Trapping Rain Water
+
+```py
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+       
+        res = 0
+        l, r = 0, len(height) - 1
+        max_left, max_right = height[l], height[r]
+        
+        while l <= r:
+            if max_left < max_right:
+                max_left = max(height[l], max_left)
+                res += max_left - height[l]
+                l += 1
+            else:
+                max_right = max(height[r], max_right)
+                res += max_right - height[r]
+                r -= 1
+        
+        return res
 ```
 
 ## 3Sum
@@ -64,25 +109,6 @@ class Solution:
         return res
 ```
 
-## Two Sum II - Input Array Is Sorted
-
-```py
-
-class Solution:
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        left, right = 0, len(numbers) - 1
-
-        while numbers[left] + numbers[right] != target:
-            if numbers[left] + numbers[right] < target:
-                left += 1
-            else:
-                right -= 1
-        
-        return [left + 1, right + 1]
-        
-
-```
-
 ## Container with most water
 
 ```py
@@ -102,30 +128,4 @@ class Solution:
 
         return max_area
 
-```
-
-## Trapping Rain Water
-
-```py
-
-class Solution:
-    def trap(self, height: List[int]) -> int:
-        if not height:
-            return 0
-       
-        res = 0
-        l, r = 0, len(height) - 1
-        max_left, max_right = height[l], height[r]
-        
-        while l <= r:
-            if max_left < max_right:
-                max_left = max(height[l], max_left)
-                res += max_left - height[l]
-                l += 1
-            else:
-                max_right = max(height[r], max_right)
-                res += max_right - height[r]
-                r -= 1
-        
-        return res
 ```
